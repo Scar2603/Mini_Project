@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepMastery - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="templates\styles.css"> -->
+    <style>
+
+
+body {
+    background-image: url("/static/back.jpg");
+    height: 100vh;
+    margin: 0;
+}
+
+.logo {
+    height: auto;
+    width: auto;
+    margin-left: 20px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between    ;
+    margin: 70px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+form{
+    font-family: 'Jost';
+}
+
+.login-panel {
+    background-color: #FFDE9B;
+    width: 400px;
+    margin: 50px;
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background: none;
+    margin: 15px;
+    margin-bottom: 35px;
+    padding: 10px;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    box-sizing: border-box;
+}
+
+input:focus{
+    outline: none;
+}
+
+button[type="submit"] {
+    color: #000000;
+    align-self: center;
+    text-align: center;
+    margin: 15px;
+    margin-bottom: 35px;
+    background-color: #FDF8EE;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    width: 190px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d4a373;
+}
+p.error-message {
+    color: red;
+    margin-top: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'Picture1.png' %}" alt="">
+                
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="side-image">
+            {% load static %}
+                <img src="{% static 'side.png' %}" alt="">
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="login-panel">
+                <h1>Sign In</h1>
+                {% if error_message %}
+                <p class="error-message">{{ error_message }}</p>
+                {% endif %}
+                <input type="text" id="username" name="username" placeholder="Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <button type="submit" class="button">Sign In</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>

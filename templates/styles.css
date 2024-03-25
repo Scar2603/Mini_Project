@@ -1,0 +1,81 @@
+body {
+    background-image: url("templates\back.jpg");
+
+    height: 100vh;
+    margin: 0;
+}
+
+.logo {
+    height: auto;
+    width: auto;
+    margin-left: 20px;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between    ;
+    margin: 70px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+form{
+    font-family: 'Jost';
+}
+
+.login-panel {
+    background-color: #FFDE9B;
+    width: 400px;
+    margin: 50px;
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background: none;
+    margin: 15px;
+    margin-bottom: 35px;
+    padding: 10px;
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    box-sizing: border-box;
+}
+
+input:focus{
+    outline: none;
+}
+
+button[type="submit"] {
+    color: #000000;
+    align-self: center;
+    text-align: center;
+    margin: 15px;
+    margin-bottom: 35px;
+    background-color: #FDF8EE;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    width: 190px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d4a373;
+}
+p.error-message {
+    color: red;
+    margin-top: 10px;
+}
