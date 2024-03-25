@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from auth_module.models import User123
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate, login
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.contrib.auth import authenticate
+from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 class CreateUserView(APIView):
     def post(self,request,*args,**kwargs):
@@ -43,19 +45,26 @@ def create_user(request):
         return render(request, 'success.html')
     return render(request, 'user_form.html')
 
+from django.views.decorators.csrf import csrf_exempt
+
 class LoginUserView(APIView):
+    @csrf_exempt  # This decorator allows bypassing CSRF verification for this view
     def post(self, request, *args, **kwargs):
-        username = request.data.get('username')
+        email = request.data.get('email')
         password = request.data.get('password')
-
-        # Authenticate user
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            # User authenticated successfully
-            # You can perform additional tasks here, such as generating tokens
-            # For now, let's just return a success message
-            return Response({'message': 'Login successful'})
+        
+        try:
+            user = User.objects.get(username=email)
+        except User.DoesNotExist:
+            user = None
+        
+        if user is not None and user.check_password(password):
+            user = authenticate(username=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('success.html')  # Redirect to success page
+            else:
+                return Response({'message': 'Invalid credentials'}, status=401)
         else:
-            # Authentication failed
             return Response({'message': 'Invalid credentials'}, status=401)
+
