@@ -1,17 +1,16 @@
 from django.shortcuts import render
 from auth_module.models import User123
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.shortcuts import redirect
-from django.contrib.auth.models import User
+from rest_framework import status
 
 class CreateUserView(APIView):
     def post(self,request,*args,**kwargs):
         data = request.data        
         student_name = data['student_name']
-        password=data['password']
+        password=data['pass']
         email = data['email']
         dob=data['dob']
         new_user = User123.objects.create(
@@ -45,26 +44,43 @@ def create_user(request):
         return render(request, 'success.html')
     return render(request, 'user_form.html')
 
-from django.views.decorators.csrf import csrf_exempt
 
-class LoginUserView(APIView):
-    @csrf_exempt  # This decorator allows bypassing CSRF verification for this view
-    def post(self, request, *args, **kwargs):
+
+
+class UserLoginAPIView(APIView):
+    def post(self, request, format=None):
         email = request.data.get('email')
         password = request.data.get('password')
-        
-        try:
-            user = User.objects.get(username=email)
-        except User.DoesNotExist:
-            user = None
-        
-        if user is not None and user.check_password(password):
-            user = authenticate(username=email, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('success.html')  # Redirect to success page
-            else:
-                return Response({'message': 'Invalid credentials'}, status=401)
-        else:
-            return Response({'message': 'Invalid credentials'}, status=401)
 
+        if email is None or password is None:
+            return Response({'error': 'Please provide both email and password'}, status=status.HTTP_400_BAD_REQUEST)
+        user = authenticate(email=email, password=password)
+
+        if user is None:
+ 
+            return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'success': 'User logged in successfully'}, status=status.HTTP_200_OK)
+
+from django.http import JsonResponse
+from .models import QuestionsTable  
+
+def my_question(request):
+    questions = QuestionsTable.objects.all()
+       
+    data = {
+        'questions': [
+            {
+                'QId': question.QId,
+                'Question': question.Question,
+                'Option1': question.Option1,
+                'Option2': question.Option2,
+                'Option3': question.Option3,
+                'Option4': question.Option4,
+                'Answer':question.Answer
+            }
+            for question in questions
+        ]
+    }
+
+   
+    return JsonResponse(data)
