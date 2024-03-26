@@ -34,6 +34,9 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000'
 )
 
+AUTH_USER_MODEL = 'auth_module.User123'
+
+
 # Application definition
 
 INSTALLED_APPS = [
