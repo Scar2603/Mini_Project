@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { Auth0Provider } from '@auth0/auth0-react'
+
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import './index.css'
 import Questions from './components/Questions.jsx'
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   
-    <RouterProvider router={router}>
+  <RouterProvider router={router}>
     <App />
   </RouterProvider>,
 
