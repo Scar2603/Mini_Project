@@ -60,3 +60,27 @@ class UserLoginAPIView(APIView):
  
             return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
         return Response({'success': 'User logged in successfully'}, status=status.HTTP_200_OK)
+
+from django.http import JsonResponse
+from .models import QuestionsTable  
+
+def my_question(request):
+    questions = QuestionsTable.objects.all()
+       
+    data = {
+        'questions': [
+            {
+                'QId': question.QId,
+                'Question': question.Question,
+                'Option1': question.Option1,
+                'Option2': question.Option2,
+                'Option3': question.Option3,
+                'Option4': question.Option4,
+                'Answer':question.Answer
+            }
+            for question in questions
+        ]
+    }
+
+   
+    return JsonResponse(data)

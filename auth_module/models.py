@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
+from django.db import models
 class UserManager123(BaseUserManager):
     def create_user(self, email, student_name, password=None, **extra_fields):
         if not email:
@@ -26,3 +26,15 @@ class User123(AbstractBaseUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager123()
+
+class QuestionsTable(models.Model):
+    QId = models.CharField(max_length=25, unique=True)
+    Question = models.TextField(default=True)
+    Option1 = models.TextField(default=True)
+    Option2 = models.TextField(default=True)
+    Option3 = models.TextField(default=True)
+    Option4 = models.TextField(default=True)
+    Answer = models.TextField(default=True)
+
+    def __str__(self):
+        return self.name
