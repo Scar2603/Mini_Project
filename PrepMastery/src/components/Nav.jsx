@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import LoginButton from './Login';
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function Nav() {
   return (
@@ -19,7 +20,7 @@ function Nav() {
                 <li><a>HSBC</a></li>
               </ul>
             </li>
-            <li><a>About</a></li>
+            <li><a href='#about'>About</a></li>
           </ul>
         </div>
         <div className="px-5 text-3xl">
@@ -29,9 +30,9 @@ function Nav() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Home</a></li>
-          <li><a>About Us</a></li>
-          <li><a>Contact Us</a></li>
+          <li><AnchorLink href='#home'>Home</AnchorLink></li>
+          <li><AnchorLink href='#about'>About Us</AnchorLink></li>
+          <li><AnchorLink href='#contact'>Contact Us</AnchorLink></li>
           <li>
             <details>
               <summary>Tracks</summary>
@@ -44,7 +45,7 @@ function Nav() {
         </ul>
       </div>
       <div className="navbar-end">
-          <Link to='/loginG'>
+          <Link to='/login'>
           <LoginButton/>
           </Link>
       </div>
