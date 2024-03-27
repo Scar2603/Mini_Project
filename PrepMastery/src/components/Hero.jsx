@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
   return (
     <>
-      <div className="hero min-h-screen">
+      <div id='home' className="hero min-h-screen">
         <div className="hero min-h-screen bg-base-200" style={{backgroundImage: 'url("Hero_bg.png")'}}>
             <div className='text-left' >
             < div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,8 +14,13 @@ const Hero = () => {
             <button className="btn btn-primary">Get Started</button>
             </div>
             </div>
-        </div></div>
-         </div>
+        </div>
+        </div>
+
+        </div>
+        <div className=' bg-yello flex justify-center ' >
+          <img className='rounded w-full sm:w-8/12' src='Hero_3.png'></img>
+        </div>
     </>
   )
 }
