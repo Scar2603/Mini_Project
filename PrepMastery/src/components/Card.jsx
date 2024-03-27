@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Card({data}) {
   return (
@@ -10,9 +11,9 @@ function Card({data}) {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{data.title}</h2>
                 <p>{data.description}</p>
-                <div className="card-actions">
+                <Link to={`/${data.title.toLowerCase().replace(/ /g, '')}`}>
                     <button className="btn btn-primary">Join Now</button>
-                </div>
+                </Link>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Hero = () => {
   return (
@@ -11,7 +12,7 @@ const Hero = () => {
             <div className='text-left font-serif '>
             <h1 className="text-5xl font-bold  ">The <span className=' text-secondary'>Smart </span>Choice For <span className=' text-secondary'>Future</span></h1>
             <p className="py-6 pr-5 text-gray-500">PrepMastery is a training provider based WIT that specialises in accredited and bespoke training tracks for your placement.</p>
-            <button className="btn btn-primary">Get Started</button>
+            <AnchorLink href='#Tracks' className="btn btn-primary">Get Started</AnchorLink>
             </div>
             </div>
         </div>
@@ -19,7 +20,7 @@ const Hero = () => {
 
         </div>
         <div className=' bg-yello flex justify-center ' >
-          <img className='rounded w-full sm:w-8/12' src='Hero_3.png'></img>
+          <img className='rounded w-full sm:w-8/12 shadow-2xl hover:shadow-lg' src='Hero_3.png'></img>
         </div>
     </>
   )
