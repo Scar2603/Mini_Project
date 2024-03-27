@@ -37,8 +37,9 @@ function Nav() {
             <details>
               <summary>Tracks</summary>
               <ul className="p-2">
-                <li><a>TCS</a></li>
-                <li><a>HSBC</a></li>
+                <li><a href='TCS'>TCS</a></li>
+                <li><a href='Accenture'>Accenture</a></li>
+                <li><a href='HSBC'>HSBC</a></li>
               </ul>
             </details>
           </li>
