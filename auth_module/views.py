@@ -95,10 +95,65 @@ def company_details(request):
             {
                 'Company_name': company.company_name,
                 'Heading': company.heading,
-                'Description': company.Description,
+                'Description': """
+TCS is the second-largest Indian company by market capitalization, the most valuable IT service
+brands worldwide, and the top Big Tech (India) company.
+It provides various services :
+
+● Cloud
+● Cognitive Business Operations
+● Consulting
+● Cybersecurity
+● Artificial Intelligence
+● Data and Analytics
+● Enterprise Solutions
+● IoT and Digital Engineering
+● Network Solutions
+● Services TCS Interactive
+
+Tata Consultancy Services Limited, initially started as Tata Computer Systems, was founded in
+1968 by a division of Tata Sons Limited.
+
+TCS Campus Recruitment Process :
+● Roles offered:
+1. TCS Ninja - 4LPA
+2. TCS Digital - 6LPA
+● Eligibility criteria:
+60% throughout 10th
+, 12th
+, Degree B.E/B.Tech (CSE/IT)
+
+● Rounds:
+Four Rounds in the following manner
+1. Online Aptitude Test:
+- Questions based on:
+a. Quantitative
+b. Logical Reasoning
+c. Verbal Ability
+2. Technical Interview:
+- The candidates shortlisted from above ‘Online Aptitude Test’ Round has
+to appear for this round.
+- Domain specific questions will be asked in this round.
+3. Coding Test:
+
+- Candidates need to solve Coding questions using any of the
+programming language
+
+4. HR Interview:
+- The shortlisted candidates from ‘Coding Test’ will be eligible for HR
+Interview Round
+- It will check the communication skills,cultural
+fitness,strengths,weakness,etc
+
+● The shortlisted students based on their scores get a chance to uplift his/her role from
+Ninja to Digital.
+● The students need to solve coding problems to prove their competency.
+"""
+
             }
             for company in companies
         ]
     }
     
     return JsonResponse(company_data)
+
