@@ -10,6 +10,7 @@ import Questions from './components/Questions.jsx'
 import ErrorPage from './pages/Error.jsx'
 import Homepage from './pages/Homepage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import SignupPage from './pages/SignUpPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage />,
     errorElement: <ErrorPage />,
   },
   {

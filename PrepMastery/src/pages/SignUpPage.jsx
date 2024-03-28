@@ -2,35 +2,27 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav';
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [formData, setFormData] = useState({
+    student_name: '',
+    pass: '',
     email: '',
-    pass: ''
+    dob: ''
   });
-  const [error, setError] = useState('');
+  const [alert, setAlert] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/auth/login/', {
-        email: formData.email,
-        password: formData.pass
-      });
-      console.log(response.data); // You can handle success response here
-      console.log("Login");
-      // Redirect to homepage
-      window.location.href = '/'; // Redirect to the homepage
+      const response = await axios.post('http://localhost:8000/auth/user/', formData);
+      console.log(response.data);
+      setAlert('Success: User authenticated successfully.');
     } catch (error) {
-      if (error.response && error.response.data) {
-        setError(error.response.data.error);
-      } else {
-        setError('Something went wrong. Please try again later.');
-      }
+      console.error('Error:', error);
     }
   };
 
@@ -41,23 +33,31 @@ const LoginPage = () => {
       </div>
       <div style={styles.pageContainer}>
         <div style={styles.imageContainer}>
-          <img src="Loginside.png" alt="Hero" style={styles.image} />
+          <img src="SignUpside.png" alt="Hero" style={styles.image} />
         </div>
         <div style={styles.container}>
-          <h2 style={styles.title}>Login</h2>
-          {error && <div style={styles.alert}>{error}</div>}
+          <h2 style={styles.title}>Sign Up</h2>
+          {alert && <div style={styles.alert}>{alert}</div>}
           <form onSubmit={handleSubmit}>
             <div style={styles.formGroup}>
-              <label htmlFor="email" style={styles.label}>Email:</label>
-              <input type="email" style={styles.input} id="email" name="email" value={formData.email} onChange={handleChange} required/>
+              <label htmlFor="student_name" style={styles.label}>Student Name:</label>
+              <input type="text" style={styles.input} id="student_name" name="student_name" value={formData.student_name} onChange={handleChange} required/>
             </div>
             <div style={styles.formGroup}>
               <label htmlFor="pass" style={styles.label}>Password:</label>
               <input type="password" style={styles.input} id="pass" name="pass" value={formData.pass} onChange={handleChange} required/>
             </div>
-            <button type="submit" style={styles.button}>Login</button>
+            <div style={styles.formGroup}>
+              <label htmlFor="email" style={styles.label}>Email:</label>
+              <input type="email" style={styles.input} id="email" name="email" value={formData.email} onChange={handleChange} required/>
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="dob" style={styles.label}>Date of Birth:</label>
+              <input type="date" style={styles.input} id="dob" name="dob" value={formData.dob} onChange={handleChange} required />
+            </div>
+            <button type="submit" style={styles.button}>Sign Up</button>
           </form>
-          <p style={styles.signupText}>Don't have an account? <a href="signup">Sign up here</a></p>
+          <p style={styles.loginText}>Already have an account? <a href="login">Click here to login</a></p>
         </div>
       </div>
     </>
@@ -80,22 +80,20 @@ const styles = {
     alignItems: 'flex-start',
     paddingRight: '100px',
     paddingBottom: '90px',
-    // marginRight: '90px', // Adjusted marginLeft
   },
   image: {
-    width: '400px',
+    width: '610px',
     height: 'auto',
   },
   container: {
     flex: '1',
     maxWidth: '400px',
-    margin: '0 auto',
+    marginRight: '140px',
     padding: '20px',
     border: '1px solid #ccc',
     borderRadius: '10px',
     backgroundColor: '#FFDE9B',
     boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-    marginRight: '140px', // Adjusted marginLeft
   },
   title: {
     textAlign: 'center',
@@ -119,7 +117,7 @@ const styles = {
     border: '1px solid #ccc',
     fontSize: '14px',
   },
-  buttonContainer: {
+  bbuttonContainer: {
     display: 'flex',
     justifyContent: 'center', // Center content horizontally
     marginTop: '10px', // Move the button up slightly
@@ -137,16 +135,16 @@ const styles = {
   },
   alert: {
     marginTop: '15px',
-    backgroundColor: '#ff0000',
+    backgroundColor: '#28a745',
     color: '#fff',
     padding: '10px',
     borderRadius: '5px',
     textAlign: 'center',
   },
-  signupText: {
+  loginText: {
     textAlign: 'center',
     marginTop: '20px',
   },
 };
 
-export default LoginPage;
+export default SignupPage;
