@@ -62,7 +62,7 @@ class UserLoginAPIView(APIView):
         return Response({'success': 'User logged in successfully'}, status=status.HTTP_200_OK)
 
 from django.http import JsonResponse
-from .models import QuestionsTable  
+from .models import QuestionsTable,CompanyInfo  
 
 def my_question(request):
     questions = QuestionsTable.objects.all()
@@ -84,3 +84,21 @@ def my_question(request):
 
    
     return JsonResponse(data)
+
+
+
+
+def company_details(request):
+    companies = CompanyInfo.objects.all()
+    company_data = {
+        'info': [
+            {
+                'Company_name': company.company_name,
+                'Heading': company.heading,
+                'Description': company.Description,
+            }
+            for company in companies
+        ]
+    }
+    
+    return JsonResponse(company_data)
