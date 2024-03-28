@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.2",
     "axios": "^0.27.2",
     "i": "^0.3.7",
     "npm": "^10.4.0",
@@ -18,7 +19,11 @@
     "react-axios": "^2.0.6",
     "react-dom": "^18.2.0",
     "react-minimal-pie-chart": "^8.4.0",
-    "react-router-dom": "^6.22.2"
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.2",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

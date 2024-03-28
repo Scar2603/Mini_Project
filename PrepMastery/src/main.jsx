@@ -11,6 +11,9 @@ import ErrorPage from './pages/Error.jsx'
 import Homepage from './pages/Homepage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import SignupPage from './pages/SignUpPage.jsx'
+import { Provider } from 'react-redux';
+import {store, persistor} from './app/store.js';
+import { PersistGate } from 'redux-persist/integration/react'
 
 const router = createBrowserRouter([
   {
@@ -49,10 +52,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
-  <RouterProvider router={router}>
-    <App />
-  </RouterProvider>,
-
-  
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </PersistGate>
+  </Provider>
 )
