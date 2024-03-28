@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav';
+import { useDispatch } from 'react-redux';
+import { login } from "../features/auth/authSlice.js";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: '',
     pass: ''
@@ -23,8 +26,10 @@ const LoginPage = () => {
       });
       console.log(response.data); // You can handle success response here
       console.log("Login");
-      // Redirect to homepage
+      dispatch(login(response.data));
+      // Redirect to homepage 
       window.location.href = '/'; // Redirect to the homepage
+      
     } catch (error) {
       if (error.response && error.response.data) {
         setError(error.response.data.error);
