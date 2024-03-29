@@ -3,9 +3,13 @@ import axios from 'axios';
 import Nav from '../components/Nav';
 import { useDispatch } from 'react-redux';
 import { login } from "../features/auth/authSlice.js";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     pass: ''
@@ -27,14 +31,18 @@ const LoginPage = () => {
       console.log(response.data); // You can handle success response here
       console.log("Login");
       dispatch(login(response.data));
+      toast.success(`Welcome back ${formData.email}! You have logged in successfully.`);
       // Redirect to homepage 
-      window.location.href = '/'; // Redirect to the homepage
+      navigate("/") // Redirect to the homepage
+     
       
     } catch (error) {
       if (error.response && error.response.data) {
         setError(error.response.data.error);
+        toast.error("Invalid credentials. Please try again.");
       } else {
         setError('Something went wrong. Please try again later.');
+        toast.error('Something went wrong. Please try again later.');
       }
     }
   };
@@ -65,6 +73,7 @@ const LoginPage = () => {
           <p style={styles.signupText}>Don't have an account? <a href="signup">Sign up here</a></p>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

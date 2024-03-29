@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav';
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +23,7 @@ const SignupPage = () => {
       const response = await axios.post('http://localhost:8000/auth/user/', formData);
       console.log(response.data);
       setAlert('Success: User authenticated successfully.');
+      toast.success(`Welcome ${formData.student_name}! You have signed up successfully.`);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -60,6 +63,7 @@ const SignupPage = () => {
           <p style={styles.loginText}>Already have an account? <a href="login">Click here to login</a></p>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

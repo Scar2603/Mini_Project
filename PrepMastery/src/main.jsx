@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import {store, persistor} from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react'
 import CompanyPage from './pages/CompanyPage.jsx'
+import Quiz from './components/Quiz.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
   {
     path: "/:title",
     element: <CompanyPage />,
-  }
+  },
+  {
+    path: "/:title/quiz",
+    element: <Quiz />,
+  },
   
 ]);
 
