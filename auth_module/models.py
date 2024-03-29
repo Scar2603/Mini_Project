@@ -40,6 +40,7 @@ class QuestionsTable(models.Model):
         return self.name
 
 class CompanyInfo(models.Model):
+
     company_name=models.CharField(max_length=50,unique=True)
     heading=models.TextField(default=True)
     Description=models.TextField(default=True)
