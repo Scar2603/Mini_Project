@@ -6,6 +6,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
+from django.http import JsonResponse
+from .models import QuestionsTable,CompanyInfo  
+
 
 class CreateUserView(APIView):
     def post(self,request,*args,**kwargs):
@@ -23,8 +26,6 @@ class CreateUserView(APIView):
         new_user.save()
         return render(request, 'success.html')
 
-
-# Create your views here.
 def create_user(request):
     print('ere')
     if request.method == 'POST':
@@ -32,8 +33,6 @@ def create_user(request):
         password=request.POST['password']
         email = request.POST['email']
         dob=request.POST['dob']
-
-        print(student_name, password, email, dob)
         
         new_user = User123.objects.create(
             student_name=student_name,
@@ -44,9 +43,6 @@ def create_user(request):
         new_user.save()
         return render(request, 'success.html')
     return render(request, 'user_form.html')
-
-
-
 
 class UserLoginAPIView(APIView):
     def post(self, request, format=None):
@@ -62,8 +58,6 @@ class UserLoginAPIView(APIView):
             return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
         return Response({'success': 'User logged in successfully'}, status=status.HTTP_200_OK)
 
-from django.http import JsonResponse
-from .models import QuestionsTable,CompanyInfo  
 
 def my_question(request):
     questions = QuestionsTable.objects.all()
@@ -82,8 +76,6 @@ def my_question(request):
             for question in questions
         ]
     }
-
-   
     return JsonResponse(data)
 
 
@@ -146,7 +138,6 @@ def tcs_details(request):
     }
     return JsonResponse(company_data)
 
-
 def accenture_details(request):
     companies = CompanyInfo.objects.all()
     company_data = {
@@ -163,7 +154,6 @@ def accenture_details(request):
         ]
     }  
     return JsonResponse(company_data)
-
 
 def HSBC_details(request):
     companies = CompanyInfo.objects.all()
