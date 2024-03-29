@@ -7,7 +7,7 @@ function CompanyPage() {
   const [companyData, setCompanyData] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/auth/company/`)
+    axios.get(`http://127.0.0.1:8000/auth/tcs/`)
     //axios.get(`https://localhost:8000/companies/${title}`)
       .then(response => {
          console.log(response.data);
