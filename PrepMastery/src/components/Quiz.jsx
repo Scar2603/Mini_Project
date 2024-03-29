@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { PieChart } from 'react-minimal-pie-chart';
 import axios from 'axios';
 
 function Quiz() {
@@ -94,18 +93,7 @@ function Quiz() {
       {totalMarks > 0 && (
         <div>
           <h2>Total Marks: {totalMarks}</h2>
-          <PieChart
-            data={[
-              { title: 'Correct', value: totalMarks, color: '#4CAF50' },
-              { title: 'Incorrect', value: data.length - totalMarks, color: '#FF5252' },
-            ]}
-            label={({ dataEntry }) => dataEntry.title}
-            labelStyle={{
-              fontSize: '5px',
-              fontFamily: 'sans-serif',
-            }}
-            radius={10}
-          />
+          
         </div>
       )}
     </div>
