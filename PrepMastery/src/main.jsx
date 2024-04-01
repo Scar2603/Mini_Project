@@ -13,6 +13,7 @@ import {store, persistor} from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react'
 import CompanyPage from './pages/CompanyPage.jsx'
 import Quiz from './components/Quiz.jsx'
+import TCS from './pages/CompanyPages/tcs.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/questions",
     element: <Questions />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/TCSdemo",
+    element: <TCS />,
     errorElement: <ErrorPage />,
   },
   {
