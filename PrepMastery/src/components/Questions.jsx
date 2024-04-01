@@ -62,6 +62,7 @@ function Questions() {
   };
 
   return (
+    
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       {data.length > 0 && currentIndex < data.length && (
         <div key={currentIndex} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
@@ -79,9 +80,9 @@ function Questions() {
               <label htmlFor={`option-${currentIndex}-${optionIndex}`} style={{ marginLeft: '5px' }}>{data[currentIndex][option]}</label>
             </div>
           ))}
-          {showConfirm && <button className="btn btn-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={handleConfirm}>Confirm</button>}
-          {currentIndex !== 0 && <button className="btn btn-primary bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handlePrevious}>Previous</button>}
-          {currentIndex !== data.length - 1 && <button className=" btn btn-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleNext}>Next</button>}
+          {showConfirm && <button className="btn btn-primary " onClick={handleConfirm}>Confirm</button>}
+          {currentIndex !== 0 && <button className="btn btn-primary  " onClick={handlePrevious}>Previous</button>}
+          {currentIndex !== data.length - 1 && <button className=" btn btn-primary " onClick={handleNext}>Next</button>}
         </div>
       )}
       <button className="btn btn-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={calculateTotalMarks}>Calculate Total Marks</button>

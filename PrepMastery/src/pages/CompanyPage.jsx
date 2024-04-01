@@ -7,6 +7,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import {toast , ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ErrorPage from './Error';
 
 
 function CompanyPage() {
@@ -24,8 +25,7 @@ function CompanyPage() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/auth/tcs/`)
-    //axios.get(`https://localhost:8000/companies/${title}`)
+    axios.get(`http://127.0.0.1:8000/auth/${title}/`)
       .then(response => {
          console.log(response.data);
         setCompanyData(response.data);
@@ -35,7 +35,7 @@ function CompanyPage() {
       });
   }, [title]);
 
-  if (!companyData) return <div className='flex justify-center items-center h-screen'><div className='font-extrabold text-5xl'>Loading...</div></div>
+  if (!companyData) return <ErrorPage />; 
   
 
   return (
@@ -43,7 +43,7 @@ function CompanyPage() {
       <Nav/>
       <div className="hero min-h-screen " style={{backgroundImage: 'url("Hero_bg.png")'}}>
       <div className="hero-content flex-col lg:flex-row-reverse">
-      <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+      <img src={companyData.info[0].Image_URL} className="max-w-sm rounded-lg shadow-2xl" />
       <div>
       <h1 className="text-5xl font-bold">{companyData.info[0].Company_name}</h1>
       <p className="py-6">{companyData.info[0].Heading}</p>
