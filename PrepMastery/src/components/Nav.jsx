@@ -13,7 +13,7 @@ function Nav() {
   const [onHomepage,setonHomepage] = useState(true);
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-  
+
   
   useEffect(() => {
     if (location.pathname !== '/') {
