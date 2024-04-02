@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     element: <CompanyPage />,
   },
   {
-    path: "/:title/quiz",
+    path: "/tcsdemo/quiz",
     element: <Quiz />,
   },
   
