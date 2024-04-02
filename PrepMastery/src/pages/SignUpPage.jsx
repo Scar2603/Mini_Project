@@ -22,8 +22,8 @@ const SignupPage = () => {
     try {
       const response = await axios.post('http://localhost:8000/auth/user/', formData);
       console.log(response.data);
-      setAlert('Success: User authenticated successfully.');
       toast.success(`Welcome ${formData.student_name}! You have signed up successfully.`);
+      
     } catch (error) {
       console.error('Error:', error);
     }
