@@ -14,6 +14,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import CompanyPage from './pages/CompanyPage.jsx'
 import Quiz from './components/Quiz.jsx'
 import TCS from './pages/CompanyPages/tcs.jsx'
+import TCSHome from './pages/CompanyPages/TCS/TCShome.jsx'
+import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,8 +39,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/TCSdemo",
-    element: <TCS />,
+    path: "/TCS-home",
+    element: <TCSHome />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/TCS-process",
+    element: <TCSprocess />,
     errorElement: <ErrorPage />,
   },
   {

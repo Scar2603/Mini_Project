@@ -21,7 +21,7 @@ const ServiceItem = ({ children }) => {
     );
 };
 
-function TCS() {
+function TCShome() {
     const [companyData, setCompanyData] = useState(null);
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated); // Access isAuthenticated state
     const navigate = useNavigate();
@@ -113,6 +113,8 @@ function TCS() {
                         <ServiceItem>Network Solutions</ServiceItem>
                         <ServiceItem>Services TCS Interactive</ServiceItem>
                     </ul>
+
+                    <p style={styles.p}>Tata Consultancy Services Limited, initially started as Tata Computer Systems, was founded in 1968 by a division of Tata Sons Limited.</p>
 
                     {/* Updated section heading for TCS Campus Recruitment Process */}
                     <strong style={styles.sectionHeading}>TCS Campus Recruitment Process:</strong>
@@ -274,4 +276,4 @@ function TCS() {
     );
 }
 
-export default TCS;
+export default TCShome;
