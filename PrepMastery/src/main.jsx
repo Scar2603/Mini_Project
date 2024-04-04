@@ -16,6 +16,7 @@ import Quiz from './components/Quiz.jsx'
 import TCS from './pages/CompanyPages/tcs.jsx'
 import TCSHome from './pages/CompanyPages/TCS/TCShome.jsx'
 import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
+import TCSprepare from './pages/CompanyPages/TCS/TCSprepare.jsx'
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/TCS-process",
     element: <TCSprocess />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/TCS-prepare",
+    element: <TCSprepare />,
     errorElement: <ErrorPage />,
   },
   {

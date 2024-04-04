@@ -97,7 +97,7 @@ function TCSHome() {
                             <ServiceItem>Services TCS Interactive</ServiceItem>
                         </ul>
                         <p style={{ marginTop: '10px' }}>For more information, visit the <a href="https://www.tcs.com/" target="_blank" rel="noopener noreferrer" style={styles.link}>TCS official website</a>.</p>
-                        <a href='TCS-process'><button className='btn btn-secondary' style={styles.button}>Start Preparation</button></a>
+                        <a href='TCS-process'><button className='btn btn-secondary' style={styles.button}>Recruitment Process</button></a>
                     </div>
                 </div>
 
