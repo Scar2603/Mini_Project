@@ -7,7 +7,7 @@ export default {
   theme: {
       colors: {
         "yello": "#FDF8EE",
-      },
+        "yello2": "#F5EAD3",     },
     extend: {},
   },
   daisyui: {

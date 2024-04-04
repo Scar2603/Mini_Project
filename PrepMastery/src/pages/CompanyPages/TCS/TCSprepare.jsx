@@ -5,8 +5,8 @@ import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import tcsImage from '../../../../public/TCSprepare.jpg'; // Adjust the path to your image
-import pdf from '../../../../public/TCSDescription.pdf'; 
+import tcsImage from '/TCSprepare.jpg'; // Adjust the path to your image
+import pdf from '/TCSDescription.pdf'; 
 
 const ServiceItem = ({ children, reducedPadding }) => {
     const childString = String(children); // Convert children to string

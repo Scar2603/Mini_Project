@@ -5,9 +5,9 @@ const Tracks = () => {
   return (
     <>
 
-    <h1 className='text-4xl font-bold text-center bg-yello py-9'>Tracks</h1>
-    <h3 className='text-2xl font-bold text-center bg-yello '>Choose your track and get ready for the test</h3>
-  <div id='Tracks' className=' py-8 flex justify-center bg-yello'>
+    <h1 className='text-4xl font-bold text-center py-9'>Tracks</h1>
+    <h3 className='text-2xl font-bold text-center '>Choose your track and get ready for the test</h3>
+  <div id='Tracks' className=' py-8 flex justify-center'>
       
     
  

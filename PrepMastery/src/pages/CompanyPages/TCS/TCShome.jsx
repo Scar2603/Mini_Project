@@ -3,7 +3,7 @@ import ErrorPage from '../../Error';
 import React, { useEffect, useState } from 'react';
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
-import tcsImage from '../../../../public/TCSlogo.png'; // Adjust the path to your image
+import tcsImage from '/TCSlogo.png'; // Adjust the path to your image
 
 const ServiceItem = ({ children }) => {
     const childString = String(children); // Convert children to string

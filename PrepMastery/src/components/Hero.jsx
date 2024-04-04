@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
 
         </div>
-        <div className=' bg-yello flex justify-center ' >
+        <div className='flex justify-center bg-gradient-to-b from-yello' >
           <img className='rounded w-full sm:w-8/12 shadow-2xl hover:shadow-lg' src='Hero_3.png'></img>
         </div>
     </>
