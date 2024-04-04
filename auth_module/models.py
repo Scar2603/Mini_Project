@@ -44,3 +44,16 @@ class CompanyInfo(models.Model):
     company_name=models.CharField(max_length=50,unique=True)
     heading=models.TextField(default=True)
     Description=models.TextField(default=True)
+
+class QuestionHSBC(models.Model):
+    QId = models.CharField(max_length=25, unique=True)
+    Question = models.TextField(default=True)
+    Option1 = models.TextField(default=True)
+    Option2 = models.TextField(default=True)
+    Option3 = models.TextField(default=True)
+    Option4 = models.TextField(default=True)
+    Answer = models.TextField(default=True)
+    q_type = models.TextField(default=True) 
+
+    def __str__(self):
+        return self.QId  

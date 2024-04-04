@@ -40,17 +40,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/TCS-home",
+    path: "/TCShome",
     element: <TCSHome />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/TCS-process",
+    path: "/TCSprocess",
     element: <TCSprocess />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/TCS-prepare",
+    path: "/TCSprepare",
     element: <TCSprepare />,
     errorElement: <ErrorPage />,
   },

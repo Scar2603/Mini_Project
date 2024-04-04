@@ -3,25 +3,25 @@ const people = [
       name: 'Simran Mehta',
       role: 'Content Creator',
       imageUrl:
-        'simran2.jpeg',
+        'simran.jpeg',
     },
     {
       name: 'Gururaj Kulkarni',
       role: 'Co-Founder / CTO',
       imageUrl:
-        'gururaj.png',
+        'profile.png',
     },
     {
       name: 'Sanskar Kannurkar',
       role: 'UI/ UX Designer',
       imageUrl:
-        'sanskar.png',
+        'profile.png',
     },
     {
       name: 'Yash Nagarkar',
       role: 'Frontend Engineer',
       imageUrl:
-        'satoru_gojo_4k_hd_jujutsu_kaisen.jpg',
+        'profile.png',
     },
     
   ]
