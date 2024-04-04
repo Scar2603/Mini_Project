@@ -8,6 +8,7 @@ import Tracks from '../components/Tracks'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useSelector } from 'react-redux';
+import Contact from '../components/Contact'
 
 function Homepage() {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
@@ -27,6 +28,7 @@ function Homepage() {
         <Tracks/>
         <About/>
         <Team />
+        <Contact/>
         <Footer/>
     </div>
   )

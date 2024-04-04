@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Nav from './Nav';
-import hero from "../../public/Hero_bg.png";
+import hero from "/Hero_bg.png";
 
 function Quiz() {
   const [data, setData] = useState([]);

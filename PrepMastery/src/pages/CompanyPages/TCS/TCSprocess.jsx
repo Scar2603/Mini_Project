@@ -5,7 +5,7 @@ import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import tcsImage from '../../../../public/TCSprocess.png'; // Adjust the path to your image
+import tcsImage from '/TCSprocess.png'; // Adjust the path to your image
 
 const ServiceItem = ({ children }) => {
     const childString = String(children); // Convert children to string
