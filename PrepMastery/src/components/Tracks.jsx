@@ -15,7 +15,7 @@ const Tracks = () => {
   <div className="carousel-item p-4 hover:scale-110 transition-all duration-500 cursor-pointer">
   <Card data={{
     image: "https://brandeps.com/logo-download/T/TATA-Consultancy-Services-logo-01.png",
-    title: "TCS",
+    title: "TCShome",
     description: " Learn about the TCS Ninja and Digital Hiring process and get ready for the test.",
 }} />
   </div> 

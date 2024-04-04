@@ -147,7 +147,7 @@ function TCSprocess() {
                                 </ul>
                             </ServiceItem>
                         </ul>
-                        <a href='TCS-process'><button className='btn btn-secondary' style={styles.button}>Start Preparation</button></a>
+                        <a href='TCSprepare'><button className='btn btn-secondary' style={styles.button}>Start Preparation</button></a>
                         <button onClick={handleTakeTest} className='btn btn-secondary' style={{marginLeft:'10px'}}>Solve Test</button>
                     <ToastContainer />
                     </div>
