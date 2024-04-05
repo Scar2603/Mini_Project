@@ -61,3 +61,14 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+class TechMQuestions(models.Model):
+    QId = models.CharField(max_length=25, unique=True)
+    Question = models.TextField(default=True)
+    Option1 = models.TextField(default=True)
+    Option2 = models.TextField(default=True)
+    Option3 = models.TextField(default=True)
+    Option4 = models.TextField(default=True)
+    Answer = models.TextField(default=True)
+
+    def __str__(self):
+        return self.name

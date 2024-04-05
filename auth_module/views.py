@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from auth_module.models import User123,HSBCQuestions,QuestionsTable,ContactMessage
+from auth_module.models import User123,HSBCQuestions,QuestionsTable,ContactMessage,TechMQuestions
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
@@ -113,6 +113,26 @@ def save_contact_message(request):
 
 def hsbc_questions(request):
     questions = HSBCQuestions.objects.all()
+       
+    data = {
+        'questions': [
+            {
+                'QId': question.QId,
+                'Question': question.Question,
+                'Option1': question.Option1,
+                'Option2': question.Option2,
+                'Option3': question.Option3,
+                'Option4': question.Option4,
+                'Answer':question.Answer
+            }
+            for question in questions
+        ]
+    }
+    return JsonResponse(data)
+
+
+def techm_questions(request):
+    questions = TechMQuestions.objects.all()
        
     data = {
         'questions': [
