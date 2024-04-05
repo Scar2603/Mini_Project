@@ -39,13 +39,7 @@ class QuestionsTable(models.Model):
     def __str__(self):
         return self.name
 
-class CompanyInfo(models.Model):
-
-    company_name=models.CharField(max_length=50,unique=True)
-    heading=models.TextField(default=True)
-    Description=models.TextField(default=True)
-
-class QuestionHSBC(models.Model):
+class HSBCQuestions(models.Model):
     QId = models.CharField(max_length=25, unique=True)
     Question = models.TextField(default=True)
     Option1 = models.TextField(default=True)
@@ -53,7 +47,15 @@ class QuestionHSBC(models.Model):
     Option3 = models.TextField(default=True)
     Option4 = models.TextField(default=True)
     Answer = models.TextField(default=True)
-    q_type = models.TextField(default=True) 
 
     def __str__(self):
-        return self.QId  
+        return self.name
+class ContactMessage(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
