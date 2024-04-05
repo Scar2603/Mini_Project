@@ -3,6 +3,7 @@ import axios from 'axios';
 import Nav from '../components/Nav';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from 'react-router-dom';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const SignupPage = () => {
     dob: ''
   });
   const [alert, setAlert] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,6 +25,10 @@ const SignupPage = () => {
       const response = await axios.post('http://localhost:8000/auth/user/', formData);
       console.log(response.data);
       toast.success(`Welcome ${formData.student_name}! You have signed up successfully.`);
+      const redirectTimeout = setTimeout(() => {
+        navigate('/login');
+      }, 3000);
+      return () => clearTimeout(redirectTimeout);
       
     } catch (error) {
       console.error('Error:', error);
