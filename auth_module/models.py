@@ -50,6 +50,8 @@ class HSBCQuestions(models.Model):
 
     def __str__(self):
         return self.name
+    
+
 class ContactMessage(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
