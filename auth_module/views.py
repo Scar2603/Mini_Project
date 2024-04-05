@@ -7,6 +7,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from django.http import JsonResponse
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import ContactMessage
 
 
 
@@ -81,18 +85,27 @@ def my_question(request):
 
 
 
+@csrf_exempt
 def save_contact_message(request):
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        contact_message = ContactMessage.objects.create(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-            message=message
-        )
+        data = json.loads(request.body)
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        email = data.get('email')
+        message = data.get('message')
+        print(f'Form data: {first_name}, {last_name}, {email}, {message}')  # Print form data
+        if first_name:
+            try:
+                contact_message = ContactMessage.objects.create(
+                    first_name=first_name,
+                    last_name=last_name,
+                    email=email,
+                    message=message
+                )
+                ##print('ContactMessage saved successfully')  # Print success message
+                
+            except Exception as e:
+                print(f'Error saving ContactMessage: {e}')  # Print any errors
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False, 'error': 'Invalid request method'})

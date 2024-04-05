@@ -6,12 +6,13 @@ import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    message: "",
+    first_name: '',
+    last_name: '',
+    email: '',
+    message: '',
   });
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
