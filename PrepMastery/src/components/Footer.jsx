@@ -4,7 +4,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 const Footer = () => {
   return (
     <div>
-    <footer className="footer footer-center p-10  text-base-content rounded bg-yello2">
+    <footer className="footer footer-center p-5  text-base-content rounded bg-yello2">
   <nav className="grid grid-flow-col gap-4">
     <AnchorLink href="#home" className="link link-hover">Home</AnchorLink>
     <AnchorLink href="#about" className="link link-hover">About us</AnchorLink>

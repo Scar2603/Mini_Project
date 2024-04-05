@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import {store, persistor} from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react'
 import CompanyPage from './pages/CompanyPage.jsx'
-import Quiz from './components/Quiz.jsx'
+import Quiz from './components/quiz/Quiz.jsx'
 import TCS from './pages/CompanyPages/tcs.jsx'
 import TCSHome from './pages/CompanyPages/TCS/TCShome.jsx'
 import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
