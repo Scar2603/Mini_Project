@@ -23,7 +23,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000'
 )
 
-#AUTH_USER_MODEL = 'auth_module.User123'
+AUTH_USER_MODEL = 'auth_module.User123'
 
 
 # Application definition
@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'new_schema',
+        'NAME': 'new',
         'USER': 'root',
-        'PASSWORD': 'Y@shwant',
+        'PASSWORD': 'Pradip@26',
         'HOST': 'localhost',   
         'PORT': '3306',
     }

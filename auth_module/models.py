@@ -39,7 +39,7 @@ class QuestionsTable(models.Model):
     def __str__(self):
         return self.name
 
-class HSBCQuestions(models.Model):
+class Questions(models.Model):
     QId = models.CharField(max_length=25, unique=True)
     Question = models.TextField(default=True)
     Option1 = models.TextField(default=True)
