@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from auth_module.models import User123
+from auth_module.models import User123,HSBCQuestions,QuestionsTable,ContactMessage
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from django.http import JsonResponse
-from .models import QuestionsTable
+
+
 
 
 class CreateUserView(APIView):
@@ -79,9 +80,6 @@ def my_question(request):
     return JsonResponse(data)
 
 
-from django.shortcuts import render
-from django.http import JsonResponse
-from .models import ContactMessage
 
 def save_contact_message(request):
     if request.method == 'POST':
@@ -89,8 +87,6 @@ def save_contact_message(request):
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-
-        # Create and save the ContactMessage object
         contact_message = ContactMessage.objects.create(
             first_name=first_name,
             last_name=last_name,
@@ -100,3 +96,23 @@ def save_contact_message(request):
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
+
+def hsbc_questions(request):
+    questions = HSBCQuestions.objects.all()
+       
+    data = {
+        'questions': [
+            {
+                'QId': question.QId,
+                'Question': question.Question,
+                'Option1': question.Option1,
+                'Option2': question.Option2,
+                'Option3': question.Option3,
+                'Option4': question.Option4,
+                'Answer':question.Answer
+            }
+            for question in questions
+        ]
+    }
+    return JsonResponse(data)
