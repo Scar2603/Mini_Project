@@ -3,11 +3,11 @@ const people = [
       name: 'Simran Mehta',
       role: 'Content Creator',
       imageUrl:
-        'simran.jpeg',
+        'simran2.jpeg',
     },
     {
       name: 'Gururaj Kulkarni',
-      role: 'Co-Founder / CTO',
+      role: 'BackEnd Dev',
       imageUrl:
         'profile.png',
     },
