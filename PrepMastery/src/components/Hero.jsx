@@ -11,7 +11,7 @@ const Hero = () => {
             <img src="Hero_img.png" className="mx-3 max-w-screen-sm rounded-lg" />
             <div className='text-left font-serif '>
             <h1 className="text-5xl font-bold  ">The <span className=' text-secondary'>Smart </span>Choice For <span className=' text-secondary'>Future</span></h1>
-            <p className="py-6 pr-5 text-gray-500">PrepMastery is a training provider based WIT that specialises in accredited and bespoke training tracks for your placement.</p>
+            <p className="py-6 pr-5 text-gray-500">PrepMastery is a training provider that specializes in accredited and bespoke training tracks for your placement needs.</p>
             <AnchorLink href='#Tracks' className="btn btn-primary">Get Started</AnchorLink>
             </div>
             </div>

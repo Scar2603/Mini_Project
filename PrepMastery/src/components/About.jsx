@@ -15,7 +15,7 @@ const About = () => {
             <h2 className="my-4 font-bold text-3xl  sm:text-4xl ">About <span className="text-indigo-600">Our Company</span>
             </h2>
             <p className="text-gray-700">
-            PrepMastery is a training provider based WIT that specialises in accredited and bespoke training tracks for your placement (Mahit aahe repeat aahe next time changes krto).
+            PrepMastery offers specialized training programs designed to meet your specific placement requirements, providing both accredited and company specific tracks. Whether you're seeking certification or skill development, PrepMastery delivers comprehensive training solutions. Our programs are carefully crafted to enhance your qualifications and readiness for placement opportunities.
             </p>
         </div>
     </div>
