@@ -83,7 +83,7 @@ const Contact = () => {
                   Our friendly team is here to help.
                 </p>
                 <p className="mt-2 text-sm text-blue-500 dark:text-blue-400">
-                  sim@prepmastery.com
+                  help@prepmastery.com
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ const Contact = () => {
                   Mon-Fri from 8am to 5pm.
                 </p>
                 <p className="mt-2 text-sm text-blue-500 dark:text-blue-400">
-                  +91 98901 54468
+                  +91 70304 62209
                 </p>
               </div>
             </div>
@@ -177,7 +177,7 @@ const Contact = () => {
                       name="first_name"
                       value={formData.first_name}
                       onChange={handleChange}
-                      placeholder="Simran"
+                      placeholder="First Name"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
                   </div>
@@ -192,7 +192,7 @@ const Contact = () => {
                        id="lastName"
                        name="last_name" 
                        type="text"
-                      placeholder="Mehta"
+                      placeholder="Last Name"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
                   </div>
@@ -208,7 +208,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
-                    placeholder="meheta@example.com"
+                    placeholder="xyz@example.com"
                     className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>

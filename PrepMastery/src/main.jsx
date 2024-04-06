@@ -13,10 +13,18 @@ import {store, persistor} from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react'
 import CompanyPage from './pages/CompanyPage.jsx'
 import Quiz from './components/quiz/Quiz.jsx'
+import HsbcQuiz from './components/hsbcquiz/hsbcQuiz.jsx'
 import TCS from './pages/CompanyPages/tcs.jsx'
-import TCSHome from './pages/CompanyPages/TCS/TCShome.jsx'
+import TCShome from './pages/CompanyPages/TCS/TCShome.jsx'
 import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
 import TCSprepare from './pages/CompanyPages/TCS/TCSprepare.jsx'
+import HSBChome from './pages/CompanyPages/HSBC/HSBChome.jsx'
+import HSBCprocess from './pages/CompanyPages/HSBC/HSBCprocess.jsx'
+import HSBCprepare from './pages/CompanyPages/HSBC/HSBCprepare.jsx'
+import TechMhome from './pages/CompanyPages/TechM/TechMhome.jsx'
+import TechMprocess from './pages/CompanyPages/TechM/TechMprocess.jsx'
+import TechMprepare from './pages/CompanyPages/TechM/TechMprepare.jsx'
+import TechmQuiz from './components/techmquiz/techmQuiz.jsx'
 
 const router = createBrowserRouter([
   {
@@ -41,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/TCShome",
-    element: <TCSHome />,
+    element: <TCShome />,
     errorElement: <ErrorPage />,
   },
   {
@@ -55,6 +63,37 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/HSBChome",
+    element: <HSBChome />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/HSBCprocess",
+    element: <HSBCprocess />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/HSBCprepare",
+    element: <HSBCprepare />,
+    errorElement: <ErrorPage />,
+  },
+
+  {
+    path: "/TechMhome",
+    element: <TechMhome />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/TechMprocess",
+    element: <TechMprocess />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/TechMprepare",
+    element: <TechMprepare />,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/:title",
     element: <CompanyPage />,
   },
@@ -62,7 +101,15 @@ const router = createBrowserRouter([
     path: "/tcsdemo/quiz",
     element: <Quiz />,
   },
-  
+  {
+    path: "/HSBC/quiz",
+    element: <HsbcQuiz />,
+  },
+  {
+    path: "/TechM/quiz",
+    element: <TechmQuiz />,
+  },
+
 ]);
 
 

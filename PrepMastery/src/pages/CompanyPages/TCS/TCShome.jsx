@@ -16,7 +16,7 @@ const ServiceItem = ({ children }) => {
     );
 };
 
-function TCSHome() {
+function TCShome() {
     // Define styles directly in the component
     const styles = {
         container: {
@@ -110,4 +110,4 @@ function TCSHome() {
     );
 }
 
-export default TCSHome;
+export default TCShome;

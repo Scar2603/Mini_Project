@@ -68,10 +68,10 @@ function Nav() {
                     <a href="TCShome">TCS</a>
                     </li>
                     <li>
-                      <a href="TechMahindra">Tech Mahindra</a>
+                      <a href="TechMhome">Tech Mahindra</a>
                     </li>
                     <li>
-                    <a href="HSBC">HSBC</a>
+                    <a href="HSBChome">HSBC</a>
                     </li>
                   </ul>
                 </li>
@@ -101,10 +101,10 @@ function Nav() {
                       <a href="TCShome">TCS</a>
                     </li>
                     <li>
-                      <a href="TechMahindra">Tech Mahindra</a>
+                      <a href="TechMhome">Tech Mahindra</a>
                     </li>
                     <li>
-                      <a href="HSBC">HSBC</a>
+                      <a href="HSBChome">HSBC</a>
                     </li>
                   </ul>
                 </details>
