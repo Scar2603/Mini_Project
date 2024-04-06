@@ -3,7 +3,7 @@ const people = [
       name: 'Simran Mehta',
       role: 'Content Creator',
       imageUrl:
-        'simran2.jpeg',
+        'profile.png',
     },
     {
       name: 'Gururaj Kulkarni',
