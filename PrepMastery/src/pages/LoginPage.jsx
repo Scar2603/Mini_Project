@@ -31,8 +31,6 @@ const LoginPage = () => {
       console.log(response.data); // You can handle success response here
       console.log("Login");
       dispatch(login(response.data));
-      toast.success(`Welcome back ${formData.email}! You have logged in successfully.`);
-      // Redirect to homepage 
       navigate("/") // Redirect to the homepage
      
       
