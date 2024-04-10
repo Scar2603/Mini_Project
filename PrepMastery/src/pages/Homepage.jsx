@@ -11,7 +11,7 @@ import Contact from '../components/Contact'
 function Homepage() {
   
   return (
-    <div>
+    <div className='bg-yello'>
         <Nav/>
         <Hero/>
         <Tracks/>
