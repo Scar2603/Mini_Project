@@ -25,10 +25,11 @@ function Nav() {
   };
 
   return (
-    <div className="navbar bg-yello">
+    
+    <div className="navbar bg-yello2 bg-opacity-80 sticky top-0 z-50 ">
       {onHomepage ? (
         <>
-          <div className="navbar-start">
+          <div className="navbar-start bg">
             <div className="px-5 text-3xl ">
               <span className=" font-bold">Prep</span>
               <span className="text-secondary font-semibold">Mastery</span>
@@ -113,7 +114,7 @@ function Nav() {
           </div>
         </>
       ) : (
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="px-5 text-3xl">
             <span className=" font-bold">Prep</span>
             <span className="text-secondary font-semibold">Mastery</span>
@@ -121,11 +122,11 @@ function Nav() {
         </div>
       )}
 
-      <div className="navbar-end">
+      <div className="navbar-end mr-3">
         {!onHomepage ? (
           <>
             <button
-              className="btn btn-primary ml-96 m-3"
+              className="btn btn-primary ml-96 m-1"
               onClick={handleHomeButtonClick}
             >
               Home

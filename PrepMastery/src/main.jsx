@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import './index.css'
-import Questions from './components/Questions.jsx'
 import ErrorPage from './pages/Error.jsx'
 import Homepage from './pages/Homepage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
@@ -11,10 +10,6 @@ import SignupPage from './pages/SignUpPage.jsx'
 import { Provider } from 'react-redux';
 import {store, persistor} from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react'
-import CompanyPage from './pages/CompanyPage.jsx'
-import Quiz from './components/quiz/Quiz.jsx'
-import HsbcQuiz from './components/hsbcquiz/hsbcQuiz.jsx'
-import TCS from './pages/CompanyPages/tcs.jsx'
 import TCShome from './pages/CompanyPages/TCS/TCShome.jsx'
 import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
 import TCSprepare from './pages/CompanyPages/TCS/TCSprepare.jsx'
@@ -24,7 +19,9 @@ import HSBCprepare from './pages/CompanyPages/HSBC/HSBCprepare.jsx'
 import TechMhome from './pages/CompanyPages/TechM/TechMhome.jsx'
 import TechMprocess from './pages/CompanyPages/TechM/TechMprocess.jsx'
 import TechMprepare from './pages/CompanyPages/TechM/TechMprepare.jsx'
-import TechmQuiz from './components/techmquiz/techmQuiz.jsx'
+import TQuizPage from './components/tcsquiz/TQuizPage.jsx'
+import HQuizPage from './components/hsbcquiz/HQuizPage.jsx'
+import TmQuizPage from './components/techmquiz/TmQuizPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,11 +37,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/questions",
-    element: <Questions />,
     errorElement: <ErrorPage />,
   },
   {
@@ -94,20 +86,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/:title",
-    element: <CompanyPage />,
-  },
-  {
     path: "/tcsdemo/quiz",
-    element: <Quiz />,
+    element: <TQuizPage />,
   },
   {
     path: "/HSBC/quiz",
-    element: <HsbcQuiz />,
+    element: <HQuizPage />,
   },
   {
     path: "/TechM/quiz",
-    element: <TechmQuiz />,
+    element: <TmQuizPage />,
   },
 
 ]);

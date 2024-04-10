@@ -28,6 +28,8 @@ function Quiz() {
       },
     ],
   });
+  
+  
   useEffect(() => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -120,21 +122,6 @@ function Quiz() {
     updateChartData();
   };
 
-  const handleAnswerSelect = (isCorrect) => {
-    if (isCorrect) {
-      setCorrectAnswers((prevCorrectAnswers) => {
-        const newCorrectAnswers = prevCorrectAnswers + 1;
-        updateChartData(newCorrectAnswers, incorrectAnswers);
-        return newCorrectAnswers;
-      });
-    } else {
-      setIncorrectAnswers((prevIncorrectAnswers) => {
-        const newIncorrectAnswers = prevIncorrectAnswers + 1;
-        updateChartData(correctAnswers, newIncorrectAnswers);
-        return newIncorrectAnswers;
-      });
-    }
-  };
 
   const updateChartData = () => {
     const correctAnswersCount = selectedAnswers.filter(
@@ -155,7 +142,6 @@ function Quiz() {
   return (
     <>
       <ToastContainer />
-      <Nav />
 
       <div style={{ backgroundImage: `url(${hero})` }}>
         <div className="mt-14 ml-6">

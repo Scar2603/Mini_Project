@@ -47,7 +47,7 @@ const Contact = () => {
             </p>
 
             <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">
-              Chat to our friendly team
+              Chat to our <span className=' text-secondary'>friendly </span> team
             </h1>
 
             <p className="mt-3 text-gray-500 dark:text-gray-400">
