@@ -35,6 +35,7 @@ class QuestionsTable(models.Model):
     Option3 = models.TextField(default=True)
     Option4 = models.TextField(default=True)
     Answer = models.TextField(default=True)
+    Q_type = models.TextField(default=True)
 
     def __str__(self):
         return self.name
