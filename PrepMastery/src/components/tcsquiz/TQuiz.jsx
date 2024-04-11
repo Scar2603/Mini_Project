@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Nav from "../Nav";
 import hero from "/Hero_bg.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,6 +14,10 @@ function Quiz() {
   const [totalMarks, setTotalMarks] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+  const [typesCorrect, setTypesCorrect] = useState({});
+  const [typesIncorrect, setTypesIncorrect] = useState({});
+  const [calculated,setCalculated] = useState(false);
+  
 
   const [userData, setUserData] = useState({
     labels: ["Correct Answers", "Incorrect Answers"],
@@ -28,10 +31,23 @@ function Quiz() {
       },
     ],
   });
-  
-  
+
   useEffect(() => {
-    setUserData((prevUserData) => ({
+  setUserData((prevUserData) => {
+    // If both correctAnswers and incorrectAnswers are 0, set data to an empty array
+    if (correctAnswers === 0 && incorrectAnswers === 0) {
+      return {
+        ...prevUserData,
+        datasets: [
+          {
+            ...prevUserData.datasets[0],
+            data: [],
+          },
+        ],
+      };
+    }
+
+    return {
       ...prevUserData,
       datasets: [
         {
@@ -39,8 +55,9 @@ function Quiz() {
           data: [correctAnswers, incorrectAnswers],
         },
       ],
-    }));
-  }, [correctAnswers, incorrectAnswers]);
+    };
+  });
+}, [correctAnswers, incorrectAnswers]);
 
   useEffect(() => {
     (async () => {
@@ -49,9 +66,9 @@ function Quiz() {
           "http://127.0.0.1:8000/auth/question/"
         );
         const shuffledQuestions = shuffleArray(response.data.questions);
-        setData(shuffledQuestions.slice(0, 20));
-        setSelectedAnswers(new Array(20).fill(""));
-        setAnsweredQuestions(new Array(20).fill(false));
+        setData(shuffledQuestions.slice(0, 10));
+        setSelectedAnswers(new Array(10).fill(""));
+        setAnsweredQuestions(new Array(10).fill(false));
         console.log(response.data.questions);
       } catch (err) {
         console.log(err.message);
@@ -69,11 +86,20 @@ function Quiz() {
 
   const handleOptionChange = (index, optionIndex, value) => {
     const isCorrect = value === data[index].Answer;
+    const qType = data[index]["Q_type "]; 
 
     if (isCorrect) {
       setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
+      setTypesCorrect((prevTypesCorrect) => ({
+        ...prevTypesCorrect,
+        [qType]: (prevTypesCorrect[qType] || 0) + 1,
+      }));
     } else {
       setIncorrectAnswers((prevIncorrectAnswers) => prevIncorrectAnswers + 1);
+      setTypesIncorrect((prevTypesIncorrect) => ({
+        ...prevTypesIncorrect,
+        [qType]: (prevTypesIncorrect[qType] || 0) + 1,
+      }));
     }
 
     const newSelectedAnswers = [...selectedAnswers];
@@ -120,19 +146,19 @@ function Quiz() {
     setTotalMarks(marks);
     console.log(correctAnswers, incorrectAnswers);
     updateChartData();
+    setCalculated(true);
   };
-
 
   const updateChartData = () => {
     const correctAnswersCount = selectedAnswers.filter(
       (answer, index) => answer === data[index].Answer
     ).length;
     const incorrectAnswersCount = data.length - correctAnswersCount;
-    setChartData({
-      ...chartData,
+    setUserData({
+      ...userData,
       datasets: [
         {
-          ...chartData.datasets[0],
+          ...userData.datasets[0],
           data: [correctAnswersCount, incorrectAnswersCount],
         },
       ],
@@ -170,6 +196,7 @@ function Quiz() {
                         selectedAnswers[currentIndex] ===
                         data[currentIndex][option]
                       }
+                      disabled={calculated === true }
                       onChange={() =>
                         handleOptionChange(
                           currentIndex,
@@ -222,17 +249,49 @@ function Quiz() {
               Calculate Total Marks
             </button>
           )}
-          {totalMarks > 0 && (
+          {totalMarks > 0 ? (
             <div className="flex items-center justify-center">
               <div>
                 <h2 className="text-2xl font-bold text-center mb-4">
                   Total Marks: {totalMarks}
                 </h2>
                 <div className="w-80">
-                  <PieChart chartData={userData} />
+                  {/* Display separate pie charts for each question type */}
+                  {Object.keys(typesCorrect).map((type, index) => (
+                    <div key={index} className="mb-5">
+                      <h3 className="text-xl font-bold">{type}</h3>
+                      
+                      <PieChart
+                        chartData={{
+                          labels: ["Correct Answers", "Incorrect Answers"],
+                          datasets: [
+                            {
+                              label: "Quiz Results",
+                              data: [
+                                typesCorrect[type],
+                                typesIncorrect[type],
+                              ],
+                              backgroundColor: ["#FF7426", "#FDF8EE"],
+                              borderColor: "black",
+                              borderWidth: 2,
+                            },
+                          ],
+                        }}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
+          ):(calculated &&
+            <div>
+              <h2 className=" mt-48 text-2xl font-bold text-center mb-4">
+                Total Marks: {totalMarks}
+                
+              </h2>
+              <h3 className="text-2xl font-bold text-center mb-4">Better luck next time!</h3>
+            </div>
+          
           )}
         </div>
       </div>

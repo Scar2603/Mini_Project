@@ -76,7 +76,8 @@ def my_question(request):
                 'Option2': question.Option2,
                 'Option3': question.Option3,
                 'Option4': question.Option4,
-                'Answer':question.Answer
+                'Answer':question.Answer,
+                "Q_type ": question.Q_type 
             }
             for question in questions
         ]
