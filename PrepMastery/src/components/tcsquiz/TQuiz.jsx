@@ -179,144 +179,202 @@ function Quiz() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
+  const styles = {
+    container: {
+      backgroundImage: `url(${hero})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh', // Ensures the background covers the entire viewport
+    },
+    
+    questionContainer: {
+      marginTop: "-0px",
+      marginLeft: '200px',
+      marginRight: '200px',
+      backgroundColor: '#fcf9ee',
+      padding: '20px', // Add padding for better visibility
+      borderRadius: '10px', // Add border radius for rounded corners
+      borderWidth: '2px',
+    },
+    questionBox: {
+      marginBottom: "5px",
+      padding: "10px",  
+      border: "1px solid black",
+      borderRadius: "4px",
+    },
+    questionNumber: {
+      fontWeight: "bold",
+      marginBottom: "15px",
+    },
+    option: {
+      borderWidth: '2px',
+      marginBottom: "15px",
+      padding: "10px",
+      border: "1px solid black",
+      borderRadius: "4px",
+      cursor: "pointer",
+    },
+    optionHover: {
+      backgroundColor: "#ffb992",
+    },
+    button: {
+      width: "fit-content",
+      marginLeft: "10px",
+      
+    },
+    totalMarksContainer: {
+      flex: "1",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    totalMarksText: {
+      fontSize: "2xl",
+      fontWeight: "bold",
+      textAlign: "center",
+      marginBottom: "4",
+    },
+    pieChartContainer: {
+      width: "80",
+    },
+  };
+
   return (
     <>
       <ToastContainer />
 
-      <div style={{ backgroundImage: `url(${hero})` }}>
-        <div className="mt-14 ml-6">
-          <div className="timer text-2xl font-bold mb-4">
-            Time Left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-          </div>
-
-          {data.length > 0 && currentIndex < data.length && (
-            <div
-              key={currentIndex}
-              className="mb-5 border-secondary-content p-3 rounded"
-              style={{ border: "1px solid #ccc" }}
-            >
-              <p
-                style={{ fontWeight: "bold", marginBottom: "5px" }}
-                className="text-left"
-              >
-                Question {currentIndex + 1}: {data[currentIndex].Question}
-              </p>
-              {["Option1", "Option2", "Option3", "Option4"].map(
-                (option, optionIndex) => (
-                  <div key={optionIndex} className="mb-1">
-                    <input
-                      className="checkbox checkbox-secondary"
-                      type="checkbox"
-                      id={`option-${currentIndex}-${optionIndex}`}
-                      name={`option-${currentIndex}`}
-                      value={data[currentIndex][option]}
-                      checked={
-                        selectedAnswers[currentIndex] ===
-                        data[currentIndex][option]
-                      }
-                      disabled={calculated === true}
-                      onChange={() =>
-                        handleOptionChange(
-                          currentIndex,
-                          optionIndex,
-                          data[currentIndex][option]
-                        )
-                      }
-                    />
-                    <label
-                      htmlFor={`option-${currentIndex}-${optionIndex}`}
-                      style={{ marginLeft: "5px" }}
-                    >
-                      {data[currentIndex][option]}
-                    </label>
-                  </div>
-                )
-              )}
-              {showConfirm && currentIndex !== data.length - 1 && (
-                <button
-                  className="btn btn-primary w-fit m-2"
-                  onClick={handleConfirm}
-                >
-                  Confirm
-                </button>
-              )}
-              {currentIndex !== 0 && (
-                <button
-                  className="btn btn-primary w-fit m-2"
-                  onClick={handlePrevious}
-                >
-                  Previous
-                </button>
-              )}
-              {currentIndex !== data.length - 1 && (
-                <button
-                  disabled={!answeredQuestions[currentIndex]}
-                  className="btn btn-primary w-fit m-2"
-                  onClick={handleNext}
-                >
-                  Next
-                </button>
-              )}
+      <div style={styles.container}>
+        <div style={styles.questionContainer}>
+          <div className="mt-14 ml-6">
+            <div className="timer text-2xl font-bold mb-4">
+              Time Left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
             </div>
-          )}
-          {currentIndex === data.length - 1 && (
-            <button
-              className="btn btn-primary w-fit "
-              onClick={calculateTotalMarks}
-            >
-              Calculate Total Marks
-            </button>
-          )}
-          {totalMarks > 0 ? (
-            <div className="flex items-center justify-start mt-11">
-              <div>
-                <h2 className="text-2xl font-bold mb-4">
-                  Total Marks: {totalMarks}
-                </h2>
-                <div className="w-80">
-                  {/* Display separate pie charts for each question type */}
-                  <div className="grid grid-cols-4 gap-x-96">
-                    {Object.keys(typesCorrect).map((type, index) => (
-                      <div key={index} className="mb-5 w-64 h-64 ml-12">
-                        <h3 className="text-xl text-center font-bold">
-                          {type}
-                        </h3>
-                        <PieChart
-                          className="w-64 h-64 "
-                          chartData={{
-                            labels: ["Correct Answers", "Incorrect Answers"],
-                            datasets: [
-                              {
-                                label: "Quiz Results",
-                                data: [
-                                  typesCorrect[type],
-                                  typesIncorrect[type],
-                                ],
-                                backgroundColor: ["#FF7426", "#FDF8EE"],
-                                borderColor: "black",
-                                borderWidth: 2,
-                              },
-                            ],
-                          }}
-                        />
+
+            {data.length > 0 && currentIndex < data.length && (
+              <div
+                key={currentIndex}
+                className="mb-5 border-secondary-content p-3 rounded"
+                style={styles.questionBox}
+              >
+                <p
+                  style={styles.questionNumber}
+                  className="text-left"
+                >
+                  Question {currentIndex + 1}: {data[currentIndex].Question}
+                </p>
+                {["Option1", "Option2", "Option3", "Option4"].map(
+                  (option, optionIndex) => (
+                    <div key={optionIndex} className="mb-1">
+                      <div
+                        className="option-box"
+                        style={{
+                          ...styles.option,
+                          ...(selectedAnswers[currentIndex] ===
+                            data[currentIndex][option] && styles.optionHover),
+                        }}
+                        onClick={() =>
+                          handleOptionChange(
+                            currentIndex,
+                            optionIndex,
+                            data[currentIndex][option]
+                          )
+                        }
+                      >
+                        {data[currentIndex][option]}
                       </div>
-                    ))}
+                    </div>
+                  )
+                )}
+                {showConfirm && currentIndex !== data.length - 1 && (
+                  <button
+                    className="btn btn-primary w-fit m-2"
+                    onClick={handleConfirm}
+                    style={styles.button}
+                  >
+                    Confirm
+                  </button>
+                )}
+                {currentIndex !== 0 && (
+                  <button
+                    className="btn btn-primary w-fit m-2"
+                    onClick={handlePrevious}
+                    style={styles.button}
+                  >
+                    Previous
+                  </button>
+                )}
+                {currentIndex !== data.length - 1 && (
+                  <button
+                    disabled={!answeredQuestions[currentIndex]}
+                    className="btn btn-primary w-fit m-2"
+                    onClick={handleNext}
+                    style={styles.button}
+                  >
+                    Next
+                  </button>
+                )}
+              </div>
+            )}
+            {currentIndex === data.length - 1 && (
+              <button
+                className="btn btn-primary w-fit "
+                onClick={calculateTotalMarks}
+                style={styles.button}
+              >
+                Calculate Total Marks
+              </button>
+            )}
+            {totalMarks > 0 ? (
+              <div className="flex items-center justify-start mt-11">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4" style={styles.totalMarksText}>
+                    Total Marks: {totalMarks}
+                  </h2>
+                  <div className="w-80">
+                    {/* Display separate pie charts for each question type */}
+                    <div className="grid grid-cols-4 gap-x-96">
+                      {Object.keys(typesCorrect).map((type, index) => (
+                        <div key={index} className="mb-5 w-64 h-64 ml-12">
+                          <h3 className="text-xl text-center font-bold">
+                            {type}
+                          </h3>
+                          <PieChart
+                            className="w-64 h-64 "
+                            chartData={{
+                              labels: ["Correct Answers", "Incorrect Answers"],
+                              datasets: [
+                                {
+                                  label: "Quiz Results",
+                                  data: [
+                                    typesCorrect[type],
+                                    typesIncorrect[type],
+                                  ],
+                                  backgroundColor: ["#FF7426", "#FDF8EE"],
+                                  borderColor: "black",
+                                  borderWidth: 2,
+                                },
+                              ],
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            calculated && (
-              <div>
-                <h2 className=" mt-48 text-2xl font-bold text-center mb-4">
-                  Total Marks: {totalMarks}
-                </h2>
-                <h3 className="text-2xl font-bold text-center mb-4">
-                  Better luck next time!
-                </h3>
-              </div>
-            )
-          )}
+            ) : (
+              calculated && (
+                <div>
+                  <h2 className=" mt-48 text-2xl font-bold text-center mb-4">
+                    Total Marks: {totalMarks}
+                  </h2>
+                  <h3 className="text-2xl font-bold text-center mb-4">
+                    Better luck next time!
+                  </h3>
+                </div>
+              )
+            )}
+          </div>
         </div>
       </div>
     </>
