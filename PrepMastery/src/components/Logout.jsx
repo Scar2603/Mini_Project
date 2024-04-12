@@ -1,16 +1,15 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { logout } from '../features/auth/authSlice'; // Import the logout action from your authSlice
-
+import { logout } from '../features/auth/authSlice'; 
 const LogoutButton = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logout()); // Dispatch the logout action
+    dispatch(logout()); 
   };
 
   return (
-    <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
+    <button onClick={handleLogout} className='btn btn-primary rounded-full'>Logout</button>
   );
 };
 

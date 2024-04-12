@@ -4,7 +4,7 @@ const LoginButton = () => {
  
 
   return (
- <button  className='btn btn-primary'>Login</button>
+ <button  className='btn btn-primary rounded-full'>Login</button>
 
   )
 };
