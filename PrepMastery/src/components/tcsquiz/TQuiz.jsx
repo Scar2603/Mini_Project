@@ -16,8 +16,8 @@ function Quiz() {
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [typesCorrect, setTypesCorrect] = useState({});
   const [typesIncorrect, setTypesIncorrect] = useState({});
-  const [calculated,setCalculated] = useState(false);
-  
+  const [calculated, setCalculated] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
 
   const [userData, setUserData] = useState({
     labels: ["Correct Answers", "Incorrect Answers"],
@@ -33,31 +33,43 @@ function Quiz() {
   });
 
   useEffect(() => {
-  setUserData((prevUserData) => {
-    // If both correctAnswers and incorrectAnswers are 0, set data to an empty array
-    if (correctAnswers === 0 && incorrectAnswers === 0) {
+    const timer = setTimeout(() => {
+      if (timeLeft > 0 && !calculated) {
+        setTimeLeft(timeLeft - 1);
+      } else {
+        calculateTotalMarks();
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
+
+  useEffect(() => {
+    setUserData((prevUserData) => {
+      // If both correctAnswers and incorrectAnswers are 0, set data to an empty array
+      if (correctAnswers === 0 && incorrectAnswers === 0) {
+        return {
+          ...prevUserData,
+          datasets: [
+            {
+              ...prevUserData.datasets[0],
+              data: [],
+            },
+          ],
+        };
+      }
+
       return {
         ...prevUserData,
         datasets: [
           {
             ...prevUserData.datasets[0],
-            data: [],
+            data: [correctAnswers, incorrectAnswers],
           },
         ],
       };
-    }
-
-    return {
-      ...prevUserData,
-      datasets: [
-        {
-          ...prevUserData.datasets[0],
-          data: [correctAnswers, incorrectAnswers],
-        },
-      ],
-    };
-  });
-}, [correctAnswers, incorrectAnswers]);
+    });
+  }, [correctAnswers, incorrectAnswers]);
 
   useEffect(() => {
     (async () => {
@@ -66,9 +78,9 @@ function Quiz() {
           "http://127.0.0.1:8000/auth/question/"
         );
         const shuffledQuestions = shuffleArray(response.data.questions);
-        setData(shuffledQuestions.slice(0, 10));
-        setSelectedAnswers(new Array(10).fill(""));
-        setAnsweredQuestions(new Array(10).fill(false));
+        setData(shuffledQuestions.slice(0, 20));
+        setSelectedAnswers(new Array(20).fill(""));
+        setAnsweredQuestions(new Array(20).fill(false));
         console.log(response.data.questions);
       } catch (err) {
         console.log(err.message);
@@ -86,7 +98,7 @@ function Quiz() {
 
   const handleOptionChange = (index, optionIndex, value) => {
     const isCorrect = value === data[index].Answer;
-    const qType = data[index]["Q_type "]; 
+    const qType = data[index]["Q_type "];
 
     if (isCorrect) {
       setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
@@ -164,6 +176,8 @@ function Quiz() {
       ],
     });
   };
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
 
   return (
     <>
@@ -171,6 +185,10 @@ function Quiz() {
 
       <div style={{ backgroundImage: `url(${hero})` }}>
         <div className="mt-14 ml-6">
+          <div className="timer text-2xl font-bold mb-4">
+            Time Left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </div>
+
           {data.length > 0 && currentIndex < data.length && (
             <div
               key={currentIndex}
@@ -196,7 +214,7 @@ function Quiz() {
                         selectedAnswers[currentIndex] ===
                         data[currentIndex][option]
                       }
-                      disabled={calculated === true }
+                      disabled={calculated === true}
                       onChange={() =>
                         handleOptionChange(
                           currentIndex,
@@ -250,48 +268,54 @@ function Quiz() {
             </button>
           )}
           {totalMarks > 0 ? (
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-start mt-11">
               <div>
-                <h2 className="text-2xl font-bold text-center mb-4">
+                <h2 className="text-2xl font-bold mb-4">
                   Total Marks: {totalMarks}
                 </h2>
                 <div className="w-80">
                   {/* Display separate pie charts for each question type */}
-                  {Object.keys(typesCorrect).map((type, index) => (
-                    <div key={index} className="mb-5">
-                      <h3 className="text-xl font-bold">{type}</h3>
-                      
-                      <PieChart
-                        chartData={{
-                          labels: ["Correct Answers", "Incorrect Answers"],
-                          datasets: [
-                            {
-                              label: "Quiz Results",
-                              data: [
-                                typesCorrect[type],
-                                typesIncorrect[type],
-                              ],
-                              backgroundColor: ["#FF7426", "#FDF8EE"],
-                              borderColor: "black",
-                              borderWidth: 2,
-                            },
-                          ],
-                        }}
-                      />
-                    </div>
-                  ))}
+                  <div className="grid grid-cols-4 gap-x-96">
+                    {Object.keys(typesCorrect).map((type, index) => (
+                      <div key={index} className="mb-5 w-64 h-64 ml-12">
+                        <h3 className="text-xl text-center font-bold">
+                          {type}
+                        </h3>
+                        <PieChart
+                          className="w-64 h-64 "
+                          chartData={{
+                            labels: ["Correct Answers", "Incorrect Answers"],
+                            datasets: [
+                              {
+                                label: "Quiz Results",
+                                data: [
+                                  typesCorrect[type],
+                                  typesIncorrect[type],
+                                ],
+                                backgroundColor: ["#FF7426", "#FDF8EE"],
+                                borderColor: "black",
+                                borderWidth: 2,
+                              },
+                            ],
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          ):(calculated &&
-            <div>
-              <h2 className=" mt-48 text-2xl font-bold text-center mb-4">
-                Total Marks: {totalMarks}
-                
-              </h2>
-              <h3 className="text-2xl font-bold text-center mb-4">Better luck next time!</h3>
-            </div>
-          
+          ) : (
+            calculated && (
+              <div>
+                <h2 className=" mt-48 text-2xl font-bold text-center mb-4">
+                  Total Marks: {totalMarks}
+                </h2>
+                <h3 className="text-2xl font-bold text-center mb-4">
+                  Better luck next time!
+                </h3>
+              </div>
+            )
           )}
         </div>
       </div>

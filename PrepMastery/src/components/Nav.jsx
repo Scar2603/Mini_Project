@@ -126,7 +126,7 @@ function Nav() {
         {!onHomepage ? (
           <>
             <button
-              className="btn btn-primary ml-96 m-1"
+              className="btn btn-primary ml-96 m-1 rounded-full"
               onClick={handleHomeButtonClick}
             >
               Home
