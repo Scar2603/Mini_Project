@@ -194,7 +194,6 @@ function Quiz() {
       backgroundColor: '#fcf9ee',
       padding: '20px', // Add padding for better visibility
       borderRadius: '10px', // Add border radius for rounded corners
-      borderWidth: '2px',
     },
     questionBox: {
       marginBottom: "5px",
@@ -215,7 +214,7 @@ function Quiz() {
       cursor: "pointer",
     },
     optionHover: {
-      backgroundColor: "#ffb992",
+      backgroundColor: "#f5bd87",
     },
     button: {
       width: "fit-content",
