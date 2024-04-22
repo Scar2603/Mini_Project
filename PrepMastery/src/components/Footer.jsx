@@ -15,7 +15,7 @@ const Footer = () => {
     <div>
       <footer className="footer footer-center p-5  text-base-content rounded bg-yello2">
         {onHomepage ? (
-  <nav className="grid grid-flow-col gap-4">
+  <nav className="grid grid-flow-col gap-4 text-lg">
     <AnchorLink href="#home" className="link link-hover">
       Home
     </AnchorLink>
@@ -25,8 +25,8 @@ const Footer = () => {
     <AnchorLink href="#contact" className="link link-hover">
       Contact
     </AnchorLink>
-    <AnchorLink href="#Tracks" className="link link-hover">
-      Tracks
+    <AnchorLink href="#Companies" className="link link-hover">
+      Companies
     </AnchorLink>
   </nav>
 ) : (
@@ -40,8 +40,8 @@ const Footer = () => {
     <Link to="/#contact" className="link link-hover">
       Contact
     </Link>
-    <Link to="/#Tracks" className="link link-hover">
-      Tracks
+    <Link to="/#Companies" className="link link-hover">
+      Companies
     </Link>
   </nav>
 )}

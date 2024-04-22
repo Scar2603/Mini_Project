@@ -63,7 +63,7 @@ function Nav() {
                 <AnchorLink href="#about">About Us</AnchorLink>
                 </li>
                 <li>
-                  <a>Tracks</a>
+                  <a>Companies</a>
                   <ul className="p-2">
                     <li>
                     <a href="TCShome">TCS</a>
@@ -84,7 +84,7 @@ function Nav() {
           </div>
 
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 text-lg gap-2">
               <li>
                 <AnchorLink href="#home">Home</AnchorLink>
               </li>
@@ -96,7 +96,7 @@ function Nav() {
               </li>
               <li>
                 <details>
-                  <summary>Tracks</summary>
+                  <summary>Companies</summary>
                   <ul className="p-2">
                     <li>
                       <a href="TCShome">TCS</a>
