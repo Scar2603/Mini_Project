@@ -33,7 +33,7 @@ function TechMprocess() {
         if (!isAuthenticated) {
             toast.error("Please Login to give test !");
         } else {
-            navigate(`/HSBC/quiz`); // Replace '/quiz' with the actual path to the quiz page
+            navigate(`/TechM/quiz`); // Replace '/quiz' with the actual path to the quiz page
         }
     };
     // Define styles directly in the component
