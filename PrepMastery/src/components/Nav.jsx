@@ -31,8 +31,8 @@ function Nav() {
         <>
           <div className="navbar-start bg">
             <div className="px-5 text-3xl ">
-              <span className=" font-bold">Prep</span>
-              <span className="text-secondary font-semibold">Mastery</span>
+            <AnchorLink href="#home"><span className=" font-bold">Prep</span>
+              <span className="text-secondary font-semibold">Mastery</span></AnchorLink>
             </div>
             <div className="dropdown">
               <div
@@ -116,8 +116,9 @@ function Nav() {
       ) : (
         <div className="navbar-start ">
           <div className="px-5 text-3xl">
-            <span className=" font-bold">Prep</span>
-            <span className="text-secondary font-semibold">Mastery</span>
+          <a href="/" onClick={handleHomeButtonClick}><span className=" font-bold">Prep</span>
+            <span className="text-secondary font-semibold">Mastery</span></a>
+            
           </div>
         </div>
       )}
