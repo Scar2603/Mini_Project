@@ -1,14 +1,14 @@
 import React from "react";
 import Card from "./Card";
 
-const Tracks = () => {
+const Companies = () => {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center py-9">Tracks</h1>
+      <h1 className="text-4xl font-bold text-center py-9">Companies</h1>
       <h3 className="text-2xl font-bold text-center ">
         Choose your track and get ready for the test
       </h3>
-      <div id="Tracks" className=" py-8 flex justify-center">
+      <div id="Companies" className=" py-8 flex justify-center">
         <div className="carousel rounded-box p-8">
           <div className="carousel-item p-4 hover:scale-110 transition-all duration-500 cursor-pointer">
             <Card
@@ -51,4 +51,4 @@ const Tracks = () => {
   );
 };
 
-export default Tracks;
+export default Companies;

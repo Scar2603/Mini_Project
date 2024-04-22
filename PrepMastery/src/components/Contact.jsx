@@ -6,13 +6,12 @@ import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    message: '',
+    first_name: "",
+    last_name: "",
+    email: "",
+    message: "",
   });
 
-  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -47,7 +46,8 @@ const Contact = () => {
             </p>
 
             <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">
-              Chat to our <span className=' text-secondary'>friendly </span> team
+              Chat to our <span className=" text-secondary">friendly </span>{" "}
+              team
             </h1>
 
             <p className="mt-3 text-gray-500 dark:text-gray-400">
@@ -76,13 +76,13 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2 className="mt-4 text-xl font-medium text-gray-800 dark:text-white">
                   Email
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Our friendly team is here to help.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 dark:text-blue-400">
+                <p className="mt-2 font-bold text-sm text-blue-500 dark:text-blue-400">
                   help@prepmastery.com
                 </p>
               </div>
@@ -124,7 +124,7 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2 className="mt-4 font-medium text-xl text-gray-800 dark:text-white">
                   Office
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
@@ -153,13 +153,13 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2 className="mt-4 font-medium text-xl text-gray-800 dark:text-white">
                   Phone
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Mon-Fri from 8am to 5pm.
                 </p>
-                <p className="mt-2 text-sm text-blue-500 dark:text-blue-400">
+                <p className="mt-2 font-bold text-sm ">
                   +91 70304 62209
                 </p>
               </div>
@@ -169,7 +169,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit}>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">
-                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                    <label className="block mb-2  text-sm text-gray-600 dark:text-gray-200">
                       First Name
                     </label>
                     <input
@@ -187,11 +187,11 @@ const Contact = () => {
                       Last Name
                     </label>
                     <input
-                       onChange={handleChange}
-                       value={formData.last_name}
-                       id="lastName"
-                       name="last_name" 
-                       type="text"
+                      onChange={handleChange}
+                      value={formData.last_name}
+                      id="lastName"
+                      name="last_name"
+                      type="text"
                       placeholder="Last Name"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
@@ -199,15 +199,15 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-4">
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                  <label className="block mb-2  text-sm text-gray-600 dark:text-gray-200">
                     Email address
                   </label>
                   <input
-                      onChange={handleChange}
-                      value={formData.email}
-                      id="email"
-                      name="email"
-                      type="email"
+                    onChange={handleChange}
+                    value={formData.email}
+                    id="email"
+                    name="email"
+                    type="email"
                     placeholder="xyz@example.com"
                     className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
@@ -218,12 +218,11 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
-                      onChange={handleChange}
-                      value={formData.message}
-                      name="message"
+                    onChange={handleChange}
+                    value={formData.message}
+                    name="message"
                     className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="Message"
-                
                   ></textarea>
                 </div>
 
