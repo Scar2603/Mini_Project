@@ -4,12 +4,11 @@ import TQuiz from "./TQuiz";
 
 const TQuizPage = () => {
   return (
-    <div className=" bg-yello h-screen" >
-        <Nav />
-    <div className=" mt-28" >
-      <TQuiz /> 
-    </div>
-    
+    <div className=" bg-yello h-screen">
+      <Nav />
+      <div className=" mt-28">
+        <TQuiz />
+      </div>
     </div>
   );
 };

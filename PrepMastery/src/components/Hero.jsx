@@ -36,7 +36,7 @@ const Hero = () => {
       <div className="flex justify-center bg-gradient-to-b from-yello">
         <img
           className="rounded w-full sm:w-8/12 shadow-2xl hover:shadow-lg"
-          src="Hero_3.png"
+          src="Hero_3_.png"
         ></img>
       </div>
     </>

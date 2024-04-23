@@ -76,7 +76,7 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-xl font-medium text-gray-800 dark:text-white">
+                <h2 className="text-xl font-medium text-gray-800 dark:text-white">
                   Email
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
@@ -124,7 +124,7 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 font-medium text-xl text-gray-800 dark:text-white">
+                <h2 className="font-medium text-xl text-gray-800 dark:text-white">
                   Office
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
@@ -153,15 +153,13 @@ const Contact = () => {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 font-medium text-xl text-gray-800 dark:text-white">
+                <h2 className=" font-medium text-xl text-gray-800 dark:text-white">
                   Phone
                 </h2>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Mon-Fri from 8am to 5pm.
                 </p>
-                <p className="mt-2 font-bold text-sm ">
-                  +91 70304 62209
-                </p>
+                <p className="mt-2 font-bold text-sm ">+91 70304 62209</p>
               </div>
             </div>
 

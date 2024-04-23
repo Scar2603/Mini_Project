@@ -1,31 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import './index.css'
-import ErrorPage from './pages/Error.jsx'
-import Homepage from './pages/Homepage.jsx'
-import LoginPage from './pages/LoginPage.jsx'
-import SignupPage from './pages/SignUpPage.jsx'
-import { Provider } from 'react-redux';
-import {store, persistor} from './app/store.js';
-import { PersistGate } from 'redux-persist/integration/react'
-import TCShome from './pages/CompanyPages/TCS/TCShome.jsx'
-import TCSprocess from './pages/CompanyPages/TCS/TCSprocess.jsx'
-import TCSprepare from './pages/CompanyPages/TCS/TCSprepare.jsx'
-import HSBChome from './pages/CompanyPages/HSBC/HSBChome.jsx'
-import HSBCprocess from './pages/CompanyPages/HSBC/HSBCprocess.jsx'
-import HSBCprepare from './pages/CompanyPages/HSBC/HSBCprepare.jsx'
-import TechMhome from './pages/CompanyPages/TechM/TechMhome.jsx'
-import TechMprocess from './pages/CompanyPages/TechM/TechMprocess.jsx'
-import TechMprepare from './pages/CompanyPages/TechM/TechMprepare.jsx'
-import TQuizPage from './components/tcsquiz/TQuizPage.jsx'
-import HQuizPage from './components/hsbcquiz/HQuizPage.jsx'
-import TmQuizPage from './components/techmquiz/TmQuizPage.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import ErrorPage from "./pages/Error.jsx";
+import Homepage from "./pages/Homepage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import SignupPage from "./pages/SignUpPage.jsx";
+import { Provider } from "react-redux";
+import { store, persistor } from "./app/store.js";
+import { PersistGate } from "redux-persist/integration/react";
+import TCShome from "./pages/CompanyPages/TCS/TCShome.jsx";
+import TCSprocess from "./pages/CompanyPages/TCS/TCSprocess.jsx";
+import TCSprepare from "./pages/CompanyPages/TCS/TCSprepare.jsx";
+import HSBChome from "./pages/CompanyPages/HSBC/HSBChome.jsx";
+import HSBCprocess from "./pages/CompanyPages/HSBC/HSBCprocess.jsx";
+import HSBCprepare from "./pages/CompanyPages/HSBC/HSBCprepare.jsx";
+import TechMhome from "./pages/CompanyPages/TechM/TechMhome.jsx";
+import TechMprocess from "./pages/CompanyPages/TechM/TechMprocess.jsx";
+import TechMprepare from "./pages/CompanyPages/TechM/TechMprepare.jsx";
+import TQuizPage from "./components/tcsquiz/TQuizPage.jsx";
+import HQuizPage from "./components/hsbcquiz/HQuizPage.jsx";
+import TmQuizPage from "./components/techmquiz/TmQuizPage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Homepage />,
     errorElement: <ErrorPage />,
   },
@@ -97,17 +97,15 @@ const router = createBrowserRouter([
     path: "/TechM/quiz",
     element: <TmQuizPage />,
   },
-
 ]);
 
 const coords = { x: 0, y: 0 };
 const circles = document.querySelectorAll(".circle");
 
 const colors = [
-"#FF7426",
-// "#4B0082",
-// "#4D2C5E",
-
+  "#FF7426",
+  // "#4B0082",
+  // "#4D2C5E",
 ];
 
 circles.forEach(function (circle, index) {
@@ -116,23 +114,21 @@ circles.forEach(function (circle, index) {
   circle.style.backgroundColor = colors[index % colors.length];
 });
 
-window.addEventListener("mousemove", function(e){
+window.addEventListener("mousemove", function (e) {
   coords.x = e.clientX;
   coords.y = e.clientY;
-  
 });
 
 function animateCircles() {
-  
   let x = coords.x;
   let y = coords.y;
-  
+
   circles.forEach(function (circle, index) {
     circle.style.left = x - 12 + "px";
     circle.style.top = y - 12 + "px";
-    
+
     circle.style.scale = (circles.length - index) / circles.length;
-    
+
     circle.x = x;
     circle.y = y;
 
@@ -140,15 +136,13 @@ function animateCircles() {
     x += (nextCircle.x - x) * 0.3;
     y += (nextCircle.y - y) * 0.3;
   });
- 
+
   requestAnimationFrame(animateCircles);
 }
 
 animateCircles();
 
-
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <RouterProvider router={router}>
@@ -156,4 +150,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </RouterProvider>
     </PersistGate>
   </Provider>
-)
+);
