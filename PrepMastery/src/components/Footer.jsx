@@ -15,36 +15,36 @@ const Footer = () => {
     <div>
       <footer className="footer footer-center p-5  text-base-content rounded bg-yello2">
         {onHomepage ? (
-  <nav className="grid grid-flow-col gap-4 text-lg">
-    <AnchorLink href="#home" className="link link-hover">
-      Home
-    </AnchorLink>
-    <AnchorLink href="#about" className="link link-hover">
-      About us
-    </AnchorLink>
-    <AnchorLink href="#contact" className="link link-hover">
-      Contact
-    </AnchorLink>
-    <AnchorLink href="#Companies" className="link link-hover">
-      Companies
-    </AnchorLink>
-  </nav>
-) : (
-  <nav className="grid grid-flow-col gap-4">
-    <Link to="/" className="link link-hover">
-      Home
-    </Link>
-    <Link to="/#about" className="link link-hover">
-      About us
-    </Link>
-    <Link to="/#contact" className="link link-hover">
-      Contact
-    </Link>
-    <Link to="/#Companies" className="link link-hover">
-      Companies
-    </Link>
-  </nav>
-)}
+          <nav className="grid grid-flow-col gap-4 text-lg">
+            <AnchorLink href="#home" className="link link-hover">
+              Home
+            </AnchorLink>
+            <AnchorLink href="#about" className="link link-hover">
+              About us
+            </AnchorLink>
+            <AnchorLink href="#contact" className="link link-hover">
+              Contact
+            </AnchorLink>
+            <AnchorLink href="#Companies" className="link link-hover">
+              Companies
+            </AnchorLink>
+          </nav>
+        ) : (
+          <nav className="grid grid-flow-col gap-4">
+            <Link to="/" className="link link-hover">
+              Home
+            </Link>
+            <Link to="/#about" className="link link-hover">
+              About us
+            </Link>
+            <Link to="/#contact" className="link link-hover">
+              Contact
+            </Link>
+            <Link to="/#Companies" className="link link-hover">
+              Companies
+            </Link>
+          </nav>
+        )}
 
         <aside>
           <p>Copyright © 2024 - All right reserved by PrepMastery Ltd</p>

@@ -182,23 +182,23 @@ function TechmQuiz() {
   const styles = {
     container: {
       backgroundImage: `url(${hero})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '100vh', // Ensures the background covers the entire viewport
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh", // Ensures the background covers the entire viewport
     },
-    
+
     questionContainer: {
       marginTop: "-0px",
-      marginLeft: '200px',
-      marginRight: '200px',
-      backgroundColor: '#fcf9ee',
-      padding: '20px', // Add padding for better visibility
-      borderRadius: '10px', // Add border radius for rounded corners
-      borderWidth: '2px',
+      marginLeft: "200px",
+      marginRight: "200px",
+      backgroundColor: "#fcf9ee",
+      padding: "20px", // Add padding for better visibility
+      borderRadius: "10px", // Add border radius for rounded corners
+      borderWidth: "2px",
     },
     questionBox: {
       marginBottom: "5px",
-      padding: "10px",  
+      padding: "10px",
       border: "1px solid black",
       borderRadius: "4px",
     },
@@ -207,7 +207,7 @@ function TechmQuiz() {
       marginBottom: "15px",
     },
     option: {
-      borderWidth: '2px',
+      borderWidth: "2px",
       marginBottom: "15px",
       padding: "10px",
       border: "1px solid black",
@@ -220,7 +220,6 @@ function TechmQuiz() {
     button: {
       width: "fit-content",
       marginLeft: "10px",
-      
     },
     totalMarksContainer: {
       flex: "1",
@@ -256,10 +255,7 @@ function TechmQuiz() {
                 className="mb-5 border-secondary-content p-3 rounded"
                 style={styles.questionBox}
               >
-                <p
-                  style={styles.questionNumber}
-                  className="text-left"
-                >
+                <p style={styles.questionNumber} className="text-left">
                   Question {currentIndex + 1}: {data[currentIndex].Question}
                 </p>
                 {["Option1", "Option2", "Option3", "Option4"].map(
@@ -327,7 +323,10 @@ function TechmQuiz() {
             {totalMarks > 0 ? (
               <div className="flex items-center justify-start mt-11">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4" style={styles.totalMarksText}>
+                  <h2
+                    className="text-2xl font-bold mb-4"
+                    style={styles.totalMarksText}
+                  >
                     Total Marks: {totalMarks}
                   </h2>
                   <div className="w-80">

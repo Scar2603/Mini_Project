@@ -25,14 +25,15 @@ function Nav() {
   };
 
   return (
-    
     <div className="navbar bg-yello2 bg-opacity-80 sticky top-0 z-50 ">
       {onHomepage ? (
         <>
           <div className="navbar-start bg">
             <div className="px-5 text-3xl ">
-            <AnchorLink href="#home"><span className=" font-bold">Prep</span>
-              <span className="text-secondary font-semibold">Mastery</span></AnchorLink>
+              <AnchorLink href="#home">
+                <span className=" font-bold">Prep</span>
+                <span className="text-secondary font-semibold">Mastery</span>
+              </AnchorLink>
             </div>
             <div className="dropdown">
               <div
@@ -60,24 +61,24 @@ function Nav() {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                <AnchorLink href="#about">About Us</AnchorLink>
+                  <AnchorLink href="#about">About Us</AnchorLink>
                 </li>
                 <li>
                   <a>Companies</a>
                   <ul className="p-2">
                     <li>
-                    <a href="TCShome">TCS</a>
+                      <a href="TCShome">TCS</a>
                     </li>
                     <li>
                       <a href="TechMhome">Tech Mahindra</a>
                     </li>
                     <li>
-                    <a href="HSBChome">HSBC</a>
+                      <a href="HSBChome">HSBC</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                <AnchorLink href="#contact">Contact Us</AnchorLink>
+                  <AnchorLink href="#contact">Contact Us</AnchorLink>
                 </li>
               </ul>
             </div>
@@ -116,9 +117,10 @@ function Nav() {
       ) : (
         <div className="navbar-start ">
           <div className="px-5 text-3xl">
-          <a href="/" onClick={handleHomeButtonClick}><span className=" font-bold">Prep</span>
-            <span className="text-secondary font-semibold">Mastery</span></a>
-            
+            <a href="/" onClick={handleHomeButtonClick}>
+              <span className=" font-bold">Prep</span>
+              <span className="text-secondary font-semibold">Mastery</span>
+            </a>
           </div>
         </div>
       )}

@@ -4,13 +4,11 @@ import HSBCQuiz from "./hsbcQuiz";
 
 const HQuizPage = () => {
   return (
-    <div className=" bg-yello h-screen" >
+    <div className=" bg-yello h-screen">
       <Nav />
-    <div className=" mt-28" >
-      
-      <HSBCQuiz />
-    </div>
-    
+      <div className=" mt-28">
+        <HSBCQuiz />
+      </div>
     </div>
   );
 };
