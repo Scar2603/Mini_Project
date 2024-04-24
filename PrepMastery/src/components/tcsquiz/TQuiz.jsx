@@ -81,7 +81,7 @@ function Quiz() {
         setData(shuffledQuestions.slice(0, 20));
         setSelectedAnswers(new Array(20).fill(""));
         setAnsweredQuestions(new Array(20).fill(false));
-        console.log(response.data.questions);
+        //console.log(response.data.questions);
       } catch (err) {
         console.log(err.message);
       }
