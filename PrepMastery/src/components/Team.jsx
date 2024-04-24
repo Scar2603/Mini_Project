@@ -1,5 +1,10 @@
 const people = [
   {
+    name: "Ms. D.D. Awasekar",
+    role: "Guide/ Mentor",
+    imageUrl: "profile.png",
+  }
+  ,{
     name: "Simran Mehta",
     role: "Content Creator",
     imageUrl: "profile.png",
@@ -18,7 +23,7 @@ const people = [
     name: "Yash Nagarkar",
     role: "Frontend Engineer",
     imageUrl: "profile.png",
-  },
+  }
 ];
 
 export default function Team() {
