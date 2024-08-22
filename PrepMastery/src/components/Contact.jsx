@@ -83,7 +83,7 @@ const Contact = () => {
                   Our friendly team is here to help.
                 </p>
                 <p className="mt-2 font-bold text-sm text-blue-500 dark:text-blue-400">
-                  help@prepmastery.com
+                  prepmastery.contact@gmail.com
                 </p>
               </div>
 
